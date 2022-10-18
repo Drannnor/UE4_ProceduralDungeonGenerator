@@ -12,7 +12,6 @@
 #include "Windows/LiveCoding/Private/External/LC_MemoryFile.h"
 
 FRandomStream ADungeonBuilder::RandomStream = FRandomStream( 1337 );
-// FRandomStream ADungeonBuilder::RandomStreamDoors = FRandomStream( 1337 );
 
 // Sets default values
 ADungeonBuilder::ADungeonBuilder() {
@@ -78,8 +77,6 @@ bool ADungeonBuilder::CheckIfValidRoom( FRoom* Room ) {
         SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::DontSpawnIfColliding;
         ARoomValidator* Validator = World->SpawnActor<ARoomValidator>( ARoomValidator::StaticClass(),
                                                                        RoomValidatorTransform, SpawnParams );
-        // DrawDebugBox( World, ValidatorCenter, ValidatorExtent, FColor::Red, true, -1, 0, 5 );
-
         if( Validator ) {
             bResult = true;
         } else {
